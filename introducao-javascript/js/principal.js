@@ -1,7 +1,9 @@
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida Nutricionista";
-
-var pacientes = document.querySelectorAll(".paciente");
+var form = document.querySelector("#form-adiciona")
+// obtem dados do form 
+var paciente = obtemDadosForm(form);
+var pacientes = document.querySelectorAll(".paciente"); // cria um array com todos os elementos com a classe .paciente no html
 // Validação do peso e altura
 for (let i = 0; i < pacientes.length; i++) {
 
@@ -41,21 +43,35 @@ for (let i = 0; i < pacientes.length; i++) {
     }
 
 }
-// Inserção de um novo paciente
-var nomeNovo = document.querySelector("#nome").value;
-var pesoNovo = document.querySelector("#peso").value;
-var alturaNova = document.querySelector("#altura").value;
-var gorduraNova = document.querySelector("#gordura").value;
+var form = document.querySelector("#form-adiciona");
 
-var botao = document.querySelector("#adicionar-paciente");
+var linha = document.createElement("tr");
+var coluna = document.createElement("td");
+linha.appendChild(coluna);
+form.appendChild(linha);
 
-botao.addEventListener( "click" , function(event){
-    event.defaultPrevented();
+coluna.textContent = "TO AQUI, OLHA AQUI Ó";
+console.log(document);
+//var nomeNovo = document.querySelector("#nome").textContent;
+//var pesoNovo = document.querySelector("#peso").textContent;
+//var alturaNova = document.querySelector("#altura").textContent;
+//var gorduraNova = document.querySelector("#gordura").textContent;
 
-} 
-);
+//var botao = document.querySelector("#adicionar-paciente");
+//botao.addEventListener( "click" , function(event ){
+  //  event.defaultPrevented();
 
+
+//});
 
 //tabela-pacientes -- add tr
-
+function obtemDadosForm(form){
+    var paciente = {
+        nome: form.nome.value,
+        peso: form.peso.value,
+        altura: form.altura.value,
+        gordura: form.gordura.value
+    }
+    return paciente;
+}
 
